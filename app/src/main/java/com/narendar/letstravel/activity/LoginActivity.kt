@@ -1,4 +1,4 @@
-package com.narendar.letstravel
+package com.narendar.letstravel.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.narendar.letstravel.MainActivity
+import com.narendar.letstravel.R
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
         val currentuser = auth.currentUser
         if(currentuser != null) {
-            startActivity(Intent(this@LoginActivity, ProfileActivity::class.java))
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             finish()
         }
 
@@ -47,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(usernameInput.text.toString(), passwordInput.text.toString())
                 .addOnCompleteListener {
                     if(it.isSuccessful) {
-                        startActivity(Intent(this@LoginActivity, ProfileActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         finish()
                     } else {
                         Toast.makeText(this@LoginActivity, "Login failed, please try again! ", Toast.LENGTH_LONG).show()

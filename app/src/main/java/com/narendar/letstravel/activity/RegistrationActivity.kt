@@ -1,4 +1,4 @@
-package com.narendar.letstravel
+package com.narendar.letstravel.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import java.lang.ref.PhantomReference
+import com.narendar.letstravel.MainActivity
+import com.narendar.letstravel.R
 
 
 class RegistrationActivity : AppCompatActivity() {
@@ -71,7 +71,7 @@ class RegistrationActivity : AppCompatActivity() {
                         currentUSerDb?.child("mobileno")?.setValue(mobileInput.text.toString())
 
                         Toast.makeText(this@RegistrationActivity, "Registration Success. ", Toast.LENGTH_LONG).show()
-                        startActivity(Intent(this@RegistrationActivity, ProfileActivity::class.java))
+                        startActivity(Intent(this@RegistrationActivity, MainActivity::class.java))
                         finish()
 
 
